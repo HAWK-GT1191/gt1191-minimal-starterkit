@@ -15,6 +15,8 @@ $ sudo npm install -g sass
 $ npm -v && sass --version
 ```
 
+> Unter Windows musst du die Ausführungsrichtlinien ändern, damit Skripte wie yarn ausgeführt werden dürfen. Gehe dazu in die Einstellungen unter „Datenschutz und Sicherheit / Entwickler / PowerShell” und bestätige dies mit einem Klick auf den Button „Anwenden”.
+
 Alternativ kannst du Sass unter Windows auch mit [Chcolatey](https://chocolatey.org/) oder unter MacOS mit [Homebrew](https://brew.sh/) installieren:
 
 ```shell
