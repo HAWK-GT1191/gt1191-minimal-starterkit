@@ -11,7 +11,7 @@ Für fortgeschrittene Nutzer oder höhere Ansprüche haben wir dir das [GT1191 S
 3. Installiere sass systemweit und kontrolliere die erfolgreiche Einrichtung durch folgende Befehle (Ohne `$`):
 
 ```shell
-$ npm install -g sass
+$ sudo npm install -g sass
 $ npm -v && sass --version
 ```
 
