@@ -1,0 +1,19 @@
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+node_modules
+public/css
+.parcel-cache
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

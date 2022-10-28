@@ -1,0 +1,32 @@
+{
+  "name": "gt1191-sass",
+  "version": "1.0.0",
+  "description": "Simples Starterkit um Sass zu kompilieren.",
+  "main": "index.js",
+  "repository": "https://github.com/HAWK-GT1191/gt1191-sass",
+  "author": "macx <macx@macx.io>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "npx yarn watch:css & npx yarn serve",
+    "serve": "browser-sync start --server public --files public --open",
+    "watch:css": "sass --watch src/sass:public/css",
+    "postcss": "postcss public/css/*.css -u autoprefixer cssnano -r --no-map",
+    "build": "npx yarn build:css && npx yarn postcss",
+    "build:css": "sass src/sass:public/css"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.12",
+    "browser-sync": "^2.27.10",
+    "cssnano": "^5.1.13",
+    "postcss": "^8.4.18",
+    "postcss-cli": "^10.0.0",
+    "sass": "^1.55.0"
+  },
+  "browserslist": "> 2%, last 2 versions, not dead",
+  "prettier": {
+    "trailingComma": "es5",
+    "tabWidth": 2,
+    "proseWrap": "preserve",
+    "singleQuote": true
+  }
+}
