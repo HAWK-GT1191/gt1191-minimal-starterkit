@@ -1,4 +1,4 @@
-# GT 1191 Minimales Starterkit
+# GT 1191 Starterkit Mini
 
 Dieses Repository soll dir den Umgang mit [Sass](https://sass-lang.com/) erleichtern und kommt in zwei Versionen. Als Leitfaden, wie die Sass manuell über die Kommandozeile bedienen kannst, als auch als Workflow, die mehr Automatismen nutzen möchten.
 
