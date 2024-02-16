@@ -1,6 +1,6 @@
 {
   "name": "gt1191-starterkit-mini",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Simples Starterkit um Sass zu kompilieren.",
   "main": "index.js",
   "repository": "https://github.com/HAWK-GT1191/gt1191-starterkit-mini",
