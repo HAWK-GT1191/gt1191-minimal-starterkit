@@ -1,46 +1,55 @@
 # GT 1191 Starterkit Mini
 
-Dieses Repository soll dir den Umgang mit [Sass](https://sass-lang.com/) erleichtern und kommt in zwei Versionen. Als Leitfaden, wie die Sass manuell über die Kommandozeile bedienen kannst, als auch als Workflow, die mehr Automatismen nutzen möchten.
+Dies ist die abgespeckte Version des großen [GT1191 Starterkit](https://github.com/HAWK-GT1191/gt1191-starterkit). Während dieses vorkonfigiert ist und mit der Bildkonvertierung und -optimierung ausgestattet ist, ermöglicht dir das Mini einen einfachen Umgang mit [Sass](https://sass-lang.com/).
 
-Für fortgeschrittene Nutzer oder höhere Ansprüche haben wir dir das [GT1191 Starterkit](https://github.com/HAWK-GT1191/gt1191-starterkit) zur Verfügung gestellt, mit dem du blitzschnell Single-Page-Websites oder Multipager erstellen kannst.
+Das Starterkit Mini verwendet neben Sass auch [browser-sync](https://browsersync.io/), [postcss](https://postcss.org/), [autoprefixer](https://github.com/postcss/autoprefixer) und [cssnano](https://cssnano.co/).
 
 ## Voraussetzungen
 
-1. Lade dir den [Node.js-Installer](https://nodejs.org/en/download/) für dein System runter und führe die Installation durch.
-2. Öffne das Terminal (Mac) bzw. die PowerShell (Windows).
-3. Installiere sass systemweit und kontrolliere die erfolgreiche Einrichtung durch folgende Befehle (Ohne `$`):
+Um mit dem Starterkit arbeiten zu können, musst du vorab Git und die Paketmanager Node.js und Yarn auf deinem Computer installieren:
+
+[Zur Installationsanleitung](https://github.com/macx/starterguide.dev/blob/main/de/prerequisits.md)
+
+Installiere dir anschließend bitte auch Sass:
 
 ```shell
-$ sudo npm install -g sass
-$ npm -v && sass --version
+$ npm install -g sass
 ```
 
-> Unter Windows musst du die Ausführungsrichtlinien ändern, damit Skripte wie yarn ausgeführt werden dürfen. Gehe dazu in die Einstellungen unter „Datenschutz und Sicherheit / Entwickler / PowerShell” und bestätige dies mit einem Klick auf den Button „Anwenden”.
+## Neue Website anlegen
 
-Alternativ kannst du Sass unter Windows auch mit [Chcolatey](https://chocolatey.org/) oder unter MacOS mit [Homebrew](https://brew.sh/) installieren:
+Lade dir die Dateien des Starterkits herunter und lege sie in dem Verzeichnis deiner neuen Website ab.
 
 ```shell
-// Chcolatey
-choco install sass
+# Speichert die Dateien im aktuellen Verzeichnis
+$ git clone --depth 1 https://github.com/HAWK-GT1191/gt1191-starterkit-mini.git .
 
-// Homebrew
-brew install sass/sass/sass
+# Speichert die Dateien in einem neuen Verzeichnis
+$ git clone --depth 1 https://github.com/HAWK-GT1191/gt1191-starterkit-mini.git neue-website
 ```
 
 ## Entwicklung
 
-Es gibt zwei Verzeichnisse, die für dich wichtig sind:
+Ist das Starterkit eingerichtet, kannst du mit der Entwicklung deiner Website anfangen. Der folgende Befehl startet einen Webserver, kompiliert das CSS und öffnet die Website im Browser. Dateiänderungen werden ohne Reload nachgeladen (HMR).
 
-- `src`\
-  ist dein Arbeitsverzeichnis und enhält die Sass-Dateien.
+```shell
+$ yarn dev
+```
+
+### Datei- und Verzeichnisstruktur
+
+Folgende Verzeichnisse sind dabei zu beachten.
+
 - `public`\
-  ist das Hauptverzeichnis deiner Website mit einer `index.html`, sowie der anschließend von dir kompilierten CSS-Dateien im Unterverzeichnis `css`.
+  Das ist das Hauptverzeichnis deiner Website. Hier findest du die `index.html`, sowie das automatisch generierte CSS. Lege hier bei Bedarf auch deine Bilder oder Fonts ab.
+- `src`\
+  Enthält die Stylesheet-Datei `styles.scss`, die das Starterkit in CSS umwaldet und im `public`-Verzeichnis ablegt. Hier findest du auch `_presets.scss`, die deine Website für Demo-Zwecke vorformatiert. Diese Datei kannst du löschen, weiterverwenden oder dir Teile daraus kopieren. Eingebunden wird diese über `@use` im Stylesheet.
 
-### Sass über die Kommandozeile
+## Alternative Entwicklung mit Sass
 
-Die einfachste Methode, Sass zu verwernden, ist über die Kommandozeile. Gebe dazu ins Terminal und trage dort folgenden Befehl ein. Dieser kompiliert Sass zu CSS im Zielverzeichnis `public`.
+Die einfachste Methode, Sass zu verwernden, ist über die Kommandozeile. Das kannst du tun, wenn du Probleme mit den Befehlen `yarn` hast.
 
-Anders gesagt: Du arbeitst stets mit der Sass-Datei `src/sass/styles.scss`, die bei jeder Änderung als CSS-Datei in `public/css/styles.css` umgewandelt (kompiliert) wird.
+Der folgende Befehl wird deine Styles (`src/sass/styles.scss`) zu CSS kompilieren und hier ablegen: `public/css/styles.css`.
 
 ```shell
 $ sass --watch src/sass:public/css
@@ -48,16 +57,10 @@ $ sass --watch src/sass:public/css
 
 _Der optionale Paramter `--watch` sorgt dafür, dass bei jeder Änderung der Datei eine neue Version erstellt wird._
 
-### Mit diesem Repository arbeiten
+### Website veröffentlichen/versenden
 
-Statt Sass manuell über die Kommandozeile zu verwenden, kannst du den Workflow dieses Repository nutzen. Dies verwendet neben Sass auch [browser-sync](https://browsersync.io/), [postcss](https://postcss.org/), [autoprefixer](https://github.com/postcss/autoprefixer) und [cssnano](https://cssnano.co/), die sich über Befehle starten lassen.
-
-In Kurzform, wie du dieses Repostiroy bei dir installierst:
+Wenn du deine Website auf deinem eigenen Webserver veröffentlichen möchtest, muss diese einmal „gebacken” (build) werden. Folgender Befehl startet den Build-Prozess und legt das Ergebnis einer statischen Website im Verzeichnis `public` ab. Dessen Inhalt kannst du dann mit FTP oder SSH auf deinen Webserver hochladen.
 
 ```shell
-$ git clone https://github.com/HAWK-GT1191/gt1191-sass.git meine-website
-$ cd meine-website
-$ yarn install
+$ yarn build
 ```
-
-Mit `yarn dev` startest du den Server, der deine Website im Browser öffnet und Dateiänderungen überwacht. Mit `yarn build` erstellst du am Ende deiner Arbeit eine Version zur Bereitstellung auf deinem Webhost.
