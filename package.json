@@ -28,5 +28,6 @@
     "tabWidth": 2,
     "proseWrap": "preserve",
     "singleQuote": true
-  }
+  },
+  "dependencies": {}
 }
