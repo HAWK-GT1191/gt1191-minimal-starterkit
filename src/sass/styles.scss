@@ -1,7 +1,25 @@
+@use 'presets';
+
+/*
+┌──────────────────────────────────┐
+  NUR ZUR DEMO. BITTE LÖSCHEN!
+└──────────────────────────────────┘
+*/
+
 body {
-  background: firebrick;
-  color: ghostwhite;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  display: grid;
+  place-items: center;
+  min-height: 100dvh;
+  text-align: center;
+}
+
+.button {
+  all: unset;
+  display: inline-block;
+  background-color: black;
+  color: white;
+  line-height: 1;
+  padding-block: 0.5rem;
+  padding-inline: 1.5rem;
+  cursor: pointer;
 }

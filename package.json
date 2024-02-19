@@ -7,12 +7,12 @@
   "author": "macx <macx@macx.io>",
   "license": "MIT",
   "scripts": {
-    "dev": "npx yarn watch:css & npx yarn serve",
+    "dev": "yarn watch:css & yarn serve",
     "serve": "browser-sync start --server public --files public --open",
-    "watch:css": "sass --watch src/sass:public/css",
-    "postcss": "postcss public/css/*.css -u autoprefixer cssnano -r --no-map",
-    "build": "npx yarn build:css && npx yarn postcss",
-    "build:css": "sass src/sass:public/css"
+    "watch:css": "npx sass --watch src/sass:public/css",
+    "postcss": "npx postcss public/css/*.css -u autoprefixer cssnano -r --no-map",
+    "build": "yarn build:css && yarn postcss",
+    "build:css": "npx sass src/sass:public/css"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.17",
